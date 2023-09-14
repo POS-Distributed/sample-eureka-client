@@ -1,0 +1,26 @@
+server:
+  port: 9001
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8700/eureka
+
+#    import: "optional:http://localhost:8888/"
+
+#    import: "configserver:http://localhost:8888"
+#      import: configserver:http://localhost:8888/
+
+
+spring:
+  config:
+    import: "optional:configserver:"
+  application:
+    name: bam-eureka-client
+  profiles:
+    active: testing
+  cloud:
+    config:
+      enabled: true
+      label: main
+      debug: true
+      uri: http://localhost:8888/
